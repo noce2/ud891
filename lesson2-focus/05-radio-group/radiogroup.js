@@ -30,8 +30,13 @@
       case VK_LEFT: {
 
         e.preventDefault();
-
+        
         // This seems like a good place to do some stuff :)
+        if((this.focusedIdx - 1) < 0) {
+          this.focusedIdx = (this.focusedIdx - 1) + this.buttons.length
+        } else {
+          this.focusedIdx -= 1;
+        }
 
         break;
 
@@ -43,7 +48,11 @@
         e.preventDefault();
 
         // This seems like a good place to do some stuff :)
-
+        if((this.focusedIdx + 1) >= this.buttons.length) {
+          this.focusedIdx = (this.focusedIdx + 1) - this.buttons.length
+        } else {
+          this.focusedIdx += 1;
+        }
         break;
       }
 
